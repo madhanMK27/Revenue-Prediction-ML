@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Revenue Prediction</title>
+  </head>
+  <body>
+        <!-- Floating Background Icons -->
+        <img src="https://img.icons8.com/ios/100/ffffff/sales-performance.png" id="icon1" class="floating-icon"/>
+        <img src="https://img.icons8.com/ios/100/ffffff/graph.png" id="icon2" class="floating-icon"/>
+        <img src="https://img.icons8.com/ios/100/ffffff/money.png" id="icon3" class="floating-icon"/>
+        <img src="https://img.icons8.com/ios/100/ffffff/presentation.png" id="icon4" class="floating-icon"/>
+        
+    <!-- Confetti Bubbles Wrapper -->
+    <div class="bubble-wrapper">
+      <div class="bubble" style="width: 12px; height: 12px; left: 10%; animation-delay: 0s"></div>
+      <div class="bubble" style="width: 18px; height: 18px; left: 25%; animation-delay: 3s"></div>
+      <div class="bubble" style="width: 8px; height: 8px; left: 40%; animation-delay: 5s"></div>
+      <div class="bubble" style="width: 20px; height: 20px; left: 60%; animation-delay: 2s"></div>
+      <div class="bubble" style="width: 10px; height: 10px; left: 75%; animation-delay: 1s"></div>
+      <div class="bubble" style="width: 16px; height: 16px; left: 90%; animation-delay: 4s"></div>
+    </div>
+
+    <div class="container">
+      <span class="heading_font">Daily Revenue Predictor</span>
+      <div class="description">
+        <span>A Machine Learning Web App, Built With Flask</span>
+      </div>
+      <div class="ml-container">
+        <form action="{{ url_for('predict') }}" method="POST">
+          <input class="form-input" type="text" name="feature1" placeholder="Enter No. of customers per day: eg.145" required /><br />
+          <input class="form-input" type="text" name="feature2" placeholder="Enter average order value: eg.7.15" required /><br />
+          <input class="form-input" type="text" name="feature3" placeholder="Enter operating hours per day: eg.12" required /><br />
+          <input class="form-input" type="text" name="feature4" placeholder="Enter number of employees: eg.8" required /><br />
+          <input class="form-input" type="text" name="feature5" placeholder="Enter marketing spend per day: eg.150" required /><br />
+          <input class="form-input" type="text" name="feature6" placeholder="Enter location foot traffic: eg.650" required /><br />
+          
+          <!-- Predict and Clear Buttons -->
+          <input type="submit" class="btn-cta-button predict-btn" value="Predict" />
+          <button type="reset" class="btn-cta-button clear-btn">Clear</button>
+        </form>
+      </div>
+      <div>{{ predict_text }}</div>
+    </div>
+  </body>
+</html>
+<!-- Floating Background Icons -->
+<img src="https://img.icons8.com/ios/100/ffffff/sales-performance.png" id="icon1" class="floating-icon" />
+<img src="https://img.icons8.com/ios/100/ffffff/graph.png" id="icon2" class="floating-icon" />
+<img src="https://img.icons8.com/ios/100/ffffff/money.png" id="icon3" class="floating-icon" />
+<img src="https://img.icons8.com/ios/100/ffffff/presentation.png" id="icon4" class="floating-icon" />
